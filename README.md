@@ -1,6 +1,6 @@
 # laravel インストール方法
 
-1. `cd quizy/docker`
+1. `cd docker`
 2. `docker compose build --no-cache` (ビルドする)
 3. `docker compose up -d` (コンテナをたてる)
 4. `docker compose exec app bash` (app コンテナに入る)
