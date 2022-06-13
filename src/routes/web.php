@@ -15,6 +15,30 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('hello', function () {
-    return '<html><body><h1>Hello</h1><p?>this is sample page.</p></body></html>';
+$html = <<<EOF
+
+<html>
+    <head>
+        <title>Hello</title>
+        <style>
+            body{
+                font-size:16pt;
+                color:#999;
+            }
+            h1{
+                font-size:100pt;
+                color:#eee;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Hello</h1><p?>this is sample page.</p>
+    </body>
+</html>
+
+EOF;
+
+
+Route::get('hello', function () use ($html){
+    return $html;
 });
