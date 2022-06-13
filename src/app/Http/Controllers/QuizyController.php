@@ -4,30 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-// class HelloController extends Controller{
-// public function index(){
-//     return <<<EOF
-// <html>
-//     <head>
-//         <titleHello/Index</title>
-//     </head>
-//     <body>
-//         <h1>おおん</h1>
-//     </body>
-// </html>
-// EOF;
-
-// return view('hello.index');
-// }
-// }
-
-class HelloController extends Controller
+class QuizyController extends Controller
 { 
     public function index($id){
         $choices = [
             1=>[
-                1=>['たかなわ','たかわ','こうわ'],
-                2=>['かめど','かめと','かめいど'],
+                1=>['img','たかなわ','たかわ','こうわ'],
+                2=>['可めど','かめと','kameido'],
                 3=>['こうじまち','おかとまち','かゆまち']
             ],
             2=>[

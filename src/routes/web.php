@@ -52,4 +52,5 @@ EOF;
 //     // helloフォルダのindex.php
 // });
 
-Route::get('hello','HelloController@index');
+// Route::get('hello','HelloController@index');
+Route::get('/quizy/{id?}','HelloController@index');
