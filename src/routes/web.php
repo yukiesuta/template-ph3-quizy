@@ -45,9 +45,11 @@ EOF;
 
 
 
-// Route::get('アドレス(/だったらトップページ)', 関数などreturnで戻り値)
-Route::get('hello', function (){
-    // view('フォルダ名,ファイル名');
-    return view('hello.index');
-    // helloフォルダのindex.php
-});
+// // Route::get('アドレス(/だったらトップページ)', 関数などreturnで戻り値)
+// Route::get('hello', function (){
+//     // view('フォルダ名,ファイル名');
+//     return view('hello.index');
+//     // helloフォルダのindex.php
+// });
+
+Route::get('hello','HelloController@index');
