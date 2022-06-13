@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 $html = <<<EOF
 
@@ -39,6 +39,15 @@ $html = <<<EOF
 EOF;
 
 
-Route::get('hello', function () use ($html){
-    return $html;
+// Route::get('hello', function () use ($html){
+//     return $html;
+// });
+
+
+
+
+Route::get('hello', function (){
+    // view('フォルダ名,ファイル名');
+    return view('hello.index');
+    // helloフォルダのindex.php
 });
