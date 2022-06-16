@@ -26,7 +26,9 @@
     @endforeach
 </div> 
 
-<script src="quizy.js"></script>
+
+<!-- assetってなに？？どこからスタートすりゃいいの -->
+<script src="{{ asset('#/#') }}"></script>
 
 
 

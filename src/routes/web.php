@@ -38,13 +38,6 @@ $html = <<<EOF
 
 EOF;
 
-
-// Route::get('hello', function () use ($html){
-//     return $html;
-// });
-
-
-
 // // Route::get('アドレス(/だったらトップページ)', 関数などreturnで戻り値)
 // Route::get('hello', function (){
 //     // view('フォルダ名,ファイル名');
