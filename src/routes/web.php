@@ -46,4 +46,4 @@ EOF;
 // });
 
 // Route::get('hello','HelloController@index');
-Route::get('/quizy/{id?}','HelloController@index');
+Route::get('/quizy/{id?}','QuizyController@index');

@@ -11,8 +11,8 @@
 
 <div class="container" >
     @foreach($choices[$id] as $choice)
-        <h1 class = "question">1.この地名は何と読む?</h1>
-
+        <!-- P.82参照　デフォルトのループ変数 -->
+        <h1 class = "question">{{$loop->iteration}}.この地名は何と読む?</h1>
         <div class="choice" id="correct" >
             {{ $choice[0] }}
         </div>
@@ -22,7 +22,9 @@
         <div class="choice" id="incorrect2">
             {{ $choice[2] }}
         </div>
-
+        <div>
+            正解は{{ $choice[0] }}です
+        </div>
     @endforeach
 </div> 
 
