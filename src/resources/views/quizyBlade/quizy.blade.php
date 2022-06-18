@@ -23,6 +23,7 @@
             {{ $choice[2] }}
         </div>
         <div>
+            正解<br>
             正解は{{ $choice[0] }}です
         </div>
     @endforeach
