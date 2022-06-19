@@ -26,6 +26,16 @@
             正解<br>
             正解は{{ $choice[0] }}です
         </div>
+        <table>
+            <tr>
+                <th>name</th>
+                <th>mail</th>
+            </tr>
+            <tr>
+                {{-- <td>{{$choice[0]->choice}}</td>
+                <td>{{$choice[1]->choice}}</td> --}}
+            </tr>
+        </table>
     @endforeach
 </div> 
 
