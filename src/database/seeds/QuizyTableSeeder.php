@@ -18,6 +18,7 @@ class QuizyTableSeeder extends Seeder
             'valid'=>0,
         ];
         DB::table('quizy')->insert($param);
+
         $param = [
             'prefecture_id'=>1,
             'question_id'=>1,
@@ -25,6 +26,7 @@ class QuizyTableSeeder extends Seeder
             'valid'=>0,
         ];
         DB::table('quizy')->insert($param);
+
         $param = [
             'prefecture_id'=>1,
             'question_id'=>1,
@@ -32,6 +34,7 @@ class QuizyTableSeeder extends Seeder
             'valid'=>0,
         ];
         DB::table('quizy')->insert($param);
+
         $param = [
             'prefecture_id'=>1,
             'question_id'=>2,
@@ -39,6 +42,7 @@ class QuizyTableSeeder extends Seeder
             'valid'=>0,
         ];
         DB::table('quizy')->insert($param);
+
         $param = [
             'prefecture_id'=>1,
             'question_id'=>2,
@@ -46,6 +50,7 @@ class QuizyTableSeeder extends Seeder
             'valid'=>0,
         ];
         DB::table('quizy')->insert($param);
+        
         $param = [
             'prefecture_id'=>1,
             'question_id'=>2,
