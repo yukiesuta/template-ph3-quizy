@@ -14,7 +14,8 @@ class CreateQuizyTable extends Migration
     public function up()
     {
         Schema::create('quizy', function (Blueprint $table) {
-            $table->integer('prefecture_id');
+            $table->increments('id');
+            // $table->integer('prefecture_id');
             $table->integer('question_id');
             $table->string('name');
             $table->integer('valid');
