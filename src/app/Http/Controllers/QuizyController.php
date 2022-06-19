@@ -20,6 +20,9 @@ class QuizyController extends Controller
             ]
             ];
 
+    $items = DB::select('select * from quizy');
+    return view('quizy.index',['items'=>$item]);
+
         // view(テンプレートの場所,配列)
         // viewの編集とcontorollerで定義した変数の名前が同じときにcompact関数でまとめる
         return view('quizyBlade.quizy',compact('id','choices'));

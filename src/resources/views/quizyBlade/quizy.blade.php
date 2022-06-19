@@ -32,10 +32,13 @@
                 <th>mail</th>
             </tr>
             <tr>
-                {{-- <td>{{$choice[0]->choice}}</td>
+                {{-- <td>{{->choice}}</td>
                 <td>{{$choice[1]->choice}}</td> --}}
             </tr>
         </table>
+    @endforeach
+    @foreach($items as $item)
+        <td>{{$item->name}}</td>
     @endforeach
 </div> 
 
