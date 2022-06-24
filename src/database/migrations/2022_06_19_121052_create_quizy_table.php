@@ -18,7 +18,7 @@ class CreateQuizyTable extends Migration
             // $table->integer('prefecture_id');
             $table->integer('question_id');
             $table->string('name');
-            $table->integer('valid');
+            $table->boolean('valid');
         });
     }
 
