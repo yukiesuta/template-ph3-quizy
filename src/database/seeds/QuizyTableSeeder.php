@@ -61,5 +61,30 @@ class QuizyTableSeeder extends Seeder
             
         ];
         DB::table('choices')->insert($params);
+
+        $params = [
+            [
+                'big_question_id' => 1,
+                'image' => 'takanawa.png'
+            ],
+            [
+                'big_question_id' => 1,
+                'image' => 'kameido.png'
+            ],[
+                'big_question_id' => 2,
+                'image' => 'mukainada.png'
+            ],
+        ];
+        DB::table('questions')->insert($params);
+
+        $params = [
+            [
+                'name' => '東京の難読地名クイズ'
+            ],
+            [
+                'name' => '広島の難読地名クイズ'
+            ]
+        ];
+        DB::table('big_questions')->insert($params);
     }
 }
