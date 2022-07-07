@@ -11,52 +11,55 @@ class QuizyTableSeeder extends Seeder
      */
     public function run()
     {
-        $param = [
-            // 'prefecture_id'=>1,
-            'question_id'=>1,
-            'name'=>'たかなわ',
-            'valid'=>0,
-        ];
-        DB::table('quizy')->insert($param);
 
-        $param = [
-            // 'prefecture_id'=>1,
-            'question_id'=>1,
-            'name'=>'こうわ',
-            'valid'=>0,
+        $params = [
+            [
+                'question_id' => 1,
+                'name' => 'たかなわ',
+                'valid' => 1,
+            ],
+            [
+                'question_id' => 1,
+                'name' => 'たかわ',
+                'valid' => 0,
+            ],
+            [
+                'question_id' => 1,
+                'name' => 'こうわ',
+                'valid' => 0,
+            ],
+            [
+                'question_id' => 2,
+                'name' => 'かめと',
+                'valid' => 0,
+            ],
+            [
+                'question_id' => 2,
+                'name' => 'かめど',
+                'valid' => 0,
+            ],
+            [
+                'question_id' => 2,
+                'name' => 'かめいど',
+                'valid' => 1,
+            ],
+            [
+                'question_id' => 3,
+                'name' => 'むこうひら',
+                'valid' => 0,
+            ],
+            [
+                'question_id' => 3,
+                'name' => 'むきひら',
+                'valid' => 0,
+            ],
+            [
+                'question_id' => 3,
+                'name' => 'むかいなだ',
+                'valid' => 1,
+            ],
+            
         ];
-        DB::table('quizy')->insert($param);
-
-        $param = [
-            // 'prefecture_id'=>1,
-            'question_id'=>1,
-            'name'=>'たかわ',
-            'valid'=>0,
-        ];
-        DB::table('quizy')->insert($param);
-
-        $param = [
-            // 'prefecture_id'=>1,
-            'question_id'=>2,
-            'name'=>'わああ',
-            'valid'=>0,
-        ];
-        DB::table('quizy')->insert($param);
-
-        $param = [
-            // 'prefecture_id'=>1,
-            'question_id'=>2,
-            'name'=>'をおお',
-            'valid'=>0,
-        ];
-        DB::table('quizy')->insert($param);
-
-        $param = [
-            // 'prefecture_id'=>1,
-            'question_id'=>2,
-            'name'=>'うぇえ',
-            'valid'=>0,
-        ];
-        DB::table('quizy')->insert($param);
+        DB::table('choices')->insert($params);
     }
 }
