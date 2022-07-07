@@ -16,7 +16,7 @@ class CreateQuizyTable extends Migration
         Schema::create('choices', function (Blueprint $table) {
             $table->integer('question_id');
             $table->string('name');
-            $table->integer('valid');
+            $table->boolean('valid');
         });
     }
 
