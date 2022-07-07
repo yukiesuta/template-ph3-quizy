@@ -10,23 +10,31 @@
 <body>
 
 <div class="container" >
-    @foreach($choices[$id] as $choice)
-        <h1 class = "question">1.この地名は何と読む?</h1>
-
+    @foreach($items as $item)
+        <!-- P.82参照　デフォルトのループ変数 -->
+        <h1 class = "question">{{$loop->iteration}}.この地名は何と読む?</h1>
         <div class="choice" id="correct" >
-            {{ $choice[0] }}
+            {{$item->name}}
         </div>
         <div class="choice" id="incorrect1">
-            {{ $choice[1] }}
+            {{$item->name}}
         </div>
         <div class="choice" id="incorrect2">
-            {{ $choice[2] }}
+            {{$item->name}}
         </div>
-
+        <div>
+            正解<br>
+            {{$item->name}}
+        </div>
     @endforeach
+    {{-- @foreach($items as $item)
+        <td>{{$item->name}}</td>
+    @endforeach --}}
 </div> 
 
-<script src="quizy.js"></script>
+
+<!-- assetってなに？？どこからスタートすりゃいいの -->
+<script src="{{ asset('#/#') }}"></script>
 
 
 
