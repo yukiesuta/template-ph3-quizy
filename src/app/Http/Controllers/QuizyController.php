@@ -13,9 +13,10 @@ class QuizyController extends Controller
 
     // $questions = DB::select('select * from questions WHERE ');
     // return view('quizyBlade.quizy',['questions'=>$questions]);
+    $big_questions = DB::table('big_questions')->where('id', $id)->first();
     $questions = DB::table('questions')->where('big_question_id', $id)->get();
     $choices = DB::table('choices')->get();
-    return view('quizyBlade.quizy', compact('questions', 'choices'));
+    return view('quizyBlade.quizy', compact('big_questions','questions', 'choices'));
 
 
         // view(テンプレートの場所,配列)

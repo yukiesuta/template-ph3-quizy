@@ -10,10 +10,11 @@
 <body>
 
 <div class="container" >
+    <h1>{{$big_questions->name}}</h1>
     @foreach($questions as $question)
         <div class="quiz">
             <!-- P.82参照　デフォルトのループ変数 -->
-            <h1 class = "question">{{$loop->iteration}}.この地名は何と読む?</h1>
+            <h2 class = "question">{{$loop->iteration}}.この地名は何と読む?</h1>
             <img src="/img/{{$question->image}}">
             {{-- 選択肢をルートパラメタが一致している適切なquestion_idが一致しているもののみforeachする --}}
             @foreach($choices->where('question_id', $question->id) as $choice)
