@@ -12,18 +12,16 @@
 <div class="container" >
     @foreach($questions as $question)
         <!-- P.82参照　デフォルトのループ変数 -->
-        {{-- <h1 class = "question">{{$loop->iteration}}.この地名は何と読む?</h1> --}}
-        @foreach($choices as $choice)
+        <h1 class = "question">{{$loop->iteration}}.この地名は何と読む?</h1>
+        {{-- 選択肢をルートパラメタが一致している適切なquestion_idが一致しているもののみforeachする --}}
+        @foreach($choices->where('question_id', $question->id) as $choice)
             <div class="choice" id="correct" >
                 {{$choice->name}}
             </div>
         @endforeach
             <div>
-                正解
+                正解は{{ $choices->where('question_id', $question->id)->where('valid', true)->first()->name }}です
             </div>
-        {{-- @foreach($items as $item)
-            <td>{{$item->name}}</td>
-        @endforeach --}}
     @endforeach
 </div> 
 
