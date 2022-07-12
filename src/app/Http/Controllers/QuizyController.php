@@ -17,6 +17,8 @@ class QuizyController extends Controller
         // viewの編集とcontorollerで定義した変数の名前が同じときにcompact関数でまとめる
         // return view('quizyblade.quizy',compact('id','choices'));
 
+        // クエリをかくのを減らす クエリの発行数を減らす イーガーロード（？）
+        // INT を自然数のみ
     }
     
 

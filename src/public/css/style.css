@@ -1,18 +1,18 @@
 /* 全体 */
-.container{
-    width: 570px;
-    margin: auto;
+.container {
+  width: 570px;
+  margin: auto;
 }
 
 /* 問題ごとの写真 */
-.quiz img{
-    display: block;
-    width: 100%;
-    margin: 0 auto 0;
+.quiz img {
+  display: block;
+  width: 100%;
+  margin: 0 auto 0;
 }
 
 /* 選択肢 */
-.quiz li{
+.quiz li {
   list-style: none;
   font-weight: 600;
   padding: 0.1em 0.5em;
@@ -24,4 +24,3 @@
   padding-top: 13px;
   /* cursor: pointer; */
 }
-
