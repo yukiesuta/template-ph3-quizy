@@ -8,16 +8,10 @@ use Illuminate\Support\Facades\DB;
 class QuizyController extends Controller
 { 
     public function index($id){
-    // $choices = DB::select('select * from choices');
-    // return view('quizyBlade.quizy',['choices'=>$choices]);
-
-    // $questions = DB::select('select * from questions WHERE ');
-    // return view('quizyBlade.quizy',['questions'=>$questions]);
     $big_questions = DB::table('big_questions')->where('id', $id)->first();
     $questions = DB::table('questions')->where('big_question_id', $id)->get();
     $choices = DB::table('choices')->get();
     return view('quizyBlade.quizy', compact('big_questions','questions', 'choices'));
-
 
         // view(テンプレートの場所,配列)
         // viewの編集とcontorollerで定義した変数の名前が同じときにcompact関数でまとめる
