@@ -14,20 +14,20 @@ class CreateQuizyTable extends Migration
     public function up()
     {
         Schema::create('choices', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->unsignedInteger('id');
             $table->integer('question_id');
             $table->string('name');
             $table->boolean('valid');
             $table->timestamps();
         });
         Schema::create('questions', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->unsignedInteger('id');
             $table->integer('big_question_id');
             $table->string('image');
             $table->timestamps();
         });
         Schema::create('big_questions', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->unsignedInteger('id');
             $table->string('name');
             $table->timestamps();
         });

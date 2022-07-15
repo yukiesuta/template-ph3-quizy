@@ -70,7 +70,8 @@ class QuizyTableSeeder extends Seeder
             [
                 'big_question_id' => 1,
                 'image' => 'kameido.png'
-            ],[
+            ],
+            [
                 'big_question_id' => 2,
                 'image' => 'mukainada.png'
             ],
