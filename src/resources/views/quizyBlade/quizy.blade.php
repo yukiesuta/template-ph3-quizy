@@ -4,32 +4,29 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href = "./kuizy.css">
+    <link rel="stylesheet" href = "{{asset('/css/style.css')}}">
     <title>quizy</title>
 </head>
 <body>
 
 <div class="container" >
-    @foreach($items as $item)
-        <!-- P.82参照　デフォルトのループ変数 -->
-        <h1 class = "question">{{$loop->iteration}}.この地名は何と読む?</h1>
-        <div class="choice" id="correct" >
-            {{$item->name}}
-        </div>
-        <div class="choice" id="incorrect1">
-            {{$item->name}}
-        </div>
-        <div class="choice" id="incorrect2">
-            {{$item->name}}
-        </div>
-        <div>
-            正解<br>
-            {{$item->name}}
+    <h1>{{$big_questions->name}}</h1>
+    @foreach($questions as $question)
+        <div class="quiz">
+            <!-- P.82参照　デフォルトのループ変数 -->
+            <h2 class = "question">{{$loop->iteration}}.この地名は何と読む?</h1>
+            <img src="{{ asset('img/' . $question->image) }}">
+            {{-- 選択肢をルートパラメタが一致している適切なquestion_idが一致しているもののみforeachする --}}
+            @foreach($choices->where('question_id', $question->id) as $choice)
+                <li class="choice" id="correct" >
+                    {{$choice->name}}
+                </li>
+            @endforeach
+            <div>
+                正解は{{ $choices->where('question_id', $question->id)->where('valid', true)->first()->name }}です
+            </div>
         </div>
     @endforeach
-    {{-- @foreach($items as $item)
-        <td>{{$item->name}}</td>
-    @endforeach --}}
 </div> 
 
 
