@@ -5,9 +5,6 @@ namespace App\Http\Controllers;
 use App\Question;
 use App\Bigquestion;
 use App\Choice;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-// クラスを書いたら名前空間を自動で追加してくれる機能
 
 class QuizyController extends Controller
 { 
