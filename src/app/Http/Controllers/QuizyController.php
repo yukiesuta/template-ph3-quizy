@@ -2,15 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Question;
+use App\Bigquestion;
+use App\Choice;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+// クラスを書いたら名前空間を自動で追加してくれる機能
 
 class QuizyController extends Controller
 { 
     public function index($id){
-    $big_questions = DB::table('big_questions')->where('id', $id)->first();
-    $questions = DB::table('questions')->where('big_question_id', $id)->get();
-    $choices = DB::table('choices')->get();
+    $big_questions = Bigquestion::where('id', $id)->first();
+    $questions = Question::where('big_question_id', $id)->get();
+    $choices = Choice::get();
     return view('quizyBlade.quizy', compact('big_questions','questions', 'choices'));
 
         // view(テンプレートの場所,配列)
