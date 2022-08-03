@@ -19,3 +19,6 @@
 // });
 
 Route::get('/quizy/{id?}','QuizyController@index');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
