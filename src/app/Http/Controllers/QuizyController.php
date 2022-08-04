@@ -7,12 +7,13 @@ use App\Bigquestion;
 use App\Choice;
 
 class QuizyController extends Controller
-{ 
-    public function index($id){
-    $big_questions = Bigquestion::where('id', $id)->first();
-    $questions = Question::where('big_question_id', $id)->get();
-    $choices = Choice::get();
-    return view('quizyBlade.quizy', compact('big_questions','questions', 'choices'));
+{
+    public function index($id)
+    {
+        $big_questions = Bigquestion::where('id', $id)->first();
+        $questions = Question::where('big_question_id', $id)->get();
+        $choices = Choice::get();
+        return view('quizyBlade.quizy', compact('big_questions', 'questions', 'choices'));
 
         // view(テンプレートの場所,配列)
         // viewの編集とcontorollerで定義した変数の名前が同じときにcompact関数でまとめる
@@ -21,6 +22,4 @@ class QuizyController extends Controller
         // クエリをかくのを減らす クエリの発行数を減らす イーガーロード（？）
         // INT を自然数のみ
     }
-    
-
 };
