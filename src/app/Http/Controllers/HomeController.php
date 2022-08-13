@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\BigQuestion;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -24,5 +25,11 @@ class HomeController extends Controller
     public function index()
     {
         return view('home');
+    }
+
+    public function editpage()
+    {
+        $big_questions = Bigquestion::All();
+        return view('home', compact('big_questions'));
     }
 }
