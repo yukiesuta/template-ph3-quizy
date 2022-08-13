@@ -8,6 +8,7 @@
                     {{ session('status') }}
                 </div>
             @endif
+            <div><a href="/home/addBigquestion">大問追加</a></div>
             <table border="1">
                 @foreach ($big_questions as $big_question)
                     <tr>

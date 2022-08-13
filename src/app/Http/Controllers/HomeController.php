@@ -6,6 +6,7 @@ use App\BigQuestion;
 use App\Question;
 use App\Choice;
 use Illuminate\Http\Request;
+use Illuminate\Http\News;
 
 class HomeController extends Controller
 {
@@ -66,6 +67,17 @@ class HomeController extends Controller
             ]),
         ]);
 
+        return redirect('/home');
+    }
+
+    public function addBigQuestion() {
+        return view('admin.addBigQuestion');
+    }
+    public function addBigQuestionComplete(Request $request) {
+        BigQuestion::create([
+            'name' => $request->title
+        ]);
+        $request->timestamps = false;
         return redirect('/home');
     }
 }
