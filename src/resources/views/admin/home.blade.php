@@ -12,9 +12,10 @@
                 @foreach ($big_questions as $big_question)
                     <tr>
                         <td>{{ $big_question->name }}</td>
-                        <td><a><a href="">編集</a></td>
+                        <td><a href="/home/addQuestion/{{ $big_question->id }}">編集</a></td>
                         <td><a href="">削除</a></td>
-                        <td><img src="{{ asset('img/' . $big_question->questions->first()->image) }}" style="width: 200px"></td>
+                        <td><img src="{{ asset('img/' . $big_question->questions->first()->image) }}" style="width: 200px">
+                        </td>
                     </tr>
                 @endforeach
             </table>
