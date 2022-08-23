@@ -16,7 +16,6 @@
                         <td>{{ $big_question->name }}</td>
                         <td><a href="/home/addQuestion/{{ $big_question->id }}">小問追加</a></td>
                         <td><a href="/home/deleteBigQuestion/{{ $big_question->id }}">大問削除</a></td>
-                        <td><a href="">削除</a></td>
                         @isset($big_question->questions->first()->image)
                         <td><img src="{{ asset('img/' . $big_question->questions->first()->image) }}" style="height: 100px">
                         </td>
