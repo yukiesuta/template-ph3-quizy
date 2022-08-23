@@ -18,6 +18,8 @@
 //     // helloフォルダのindex.php
 // });
 
+Route::get('/quizy', 'QuizyController@selectQuiz');
+
 Route::get('/quizy/{id?}', 'QuizyController@index');
 Auth::routes();
 

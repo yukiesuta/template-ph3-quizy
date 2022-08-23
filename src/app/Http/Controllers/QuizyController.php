@@ -8,6 +8,11 @@ use App\Choice;
 
 class QuizyController extends Controller
 {
+    public function selectQuiz()
+    {
+        $big_questions = Bigquestion::all();
+        return view('quizyBlade.selectQuiz', compact('big_questions'));
+    }
     public function index($id)
     {
         $big_questions = Bigquestion::where('id', $id)->first();
