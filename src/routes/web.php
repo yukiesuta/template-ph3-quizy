@@ -18,6 +18,8 @@
 //     // helloフォルダのindex.php
 // });
 
+Route::get('/quizy', 'QuizyController@selectQuiz');
+
 Route::get('/quizy/{id?}', 'QuizyController@index');
 Auth::routes();
 
@@ -25,6 +27,9 @@ Route::get('/home', 'HomeController@editPage');
 
 Route::get('/home/addQuestion/{id}', 'HomeController@addQuestion');
 Route::post('/home/addQuestion/{id}', 'HomeController@addQuestionComplete');
+
+Route::get('/home/deleteBigQuestion/{id}', 'HomeController@deleteBigQuestion');
+Route::post('/home/deleteBigQuestion/{id}', 'HomeController@deleteBigQuestionComplete');
 
 Route::get('/home/addBigquestion', 'HomeController@addBigQuestion');
 Route::post('/home/addBigquestion', 'HomeController@addBigQuestionComplete');

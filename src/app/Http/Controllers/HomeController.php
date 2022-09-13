@@ -80,4 +80,24 @@ class HomeController extends Controller
         $request->timestamps = false;
         return redirect('/home');
     }
+
+    public function deleteBigQuestion($id) {
+        $big_question = BigQuestion::find($id);
+        return view('admin.deleteBigQuestion', compact('big_question'));
+    }
+
+    public function deleteBigQuestionComplete($id) {
+        $big_question = BigQuestion::find($id);
+        $questions = $big_question->questions;
+        foreach($questions as $question){
+            $choices = $question->choices;
+            foreach($choices as $choice){
+                $choice->delete();
+            }
+            $question->delete();
+        }
+        $big_question->delete();
+
+        return redirect('/home');
+    }
 }
