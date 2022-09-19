@@ -16,6 +16,9 @@
             </tr>
         @endforeach
     </table>
+    <div>
+        <a href="login">管理画面はこちら</a>
+    </div>
 </body>
 
 </html>
