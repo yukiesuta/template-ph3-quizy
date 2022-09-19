@@ -40,6 +40,17 @@ class HomeController extends Controller
         $BigQuestion = BigQuestion::find($id);
         return view('admin.addQuestion', compact('BigQuestion'));
     }
+    public function showQuestion($id)
+    {
+        $BigQuestion = BigQuestion::find($id);
+        return view('admin.showQuestion', compact('BigQuestion'));
+    }
+    public function showQuestionComplete($id)
+    {
+        $item = Choice::where('id', 30)->first();
+        $item->name = '新しい名前';
+        $item->save();
+    }
 
     public function addQuestionComplete(Request $request, $id)
     {

@@ -13,7 +13,7 @@
                 @foreach ($big_questions as $big_question)
                     <tr>
                         <td>{{ $big_question->id }}</td>
-                        <td>{{ $big_question->name }}</td>
+                        <td><a href="/home/showQuestion/{{ $big_question->id }}">{{ $big_question->name }}</a></td>
                         <td><a href="/home/addQuestion/{{ $big_question->id }}">小問追加</a></td>
                         <td><a href="/home/deleteBigQuestion/{{ $big_question->id }}">大問削除</a></td>
                         @isset($big_question->questions->first()->image)

@@ -25,6 +25,9 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@editPage');
 
+Route::get('/home/showQuestion/{id}', 'HomeController@showQuestion');
+Route::post('/home/showQuestion/{id}', 'HomeController@showQuestionComplete');
+
 Route::get('/home/addQuestion/{id}', 'HomeController@addQuestion');
 Route::post('/home/addQuestion/{id}', 'HomeController@addQuestionComplete');
 
