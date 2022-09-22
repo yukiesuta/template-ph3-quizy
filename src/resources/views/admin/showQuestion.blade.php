@@ -14,8 +14,10 @@
                         @foreach ($question->choices as $choice)
                         <li>
                             <form action="/{{ request()->path() }}" method="POST" enctype="multipart/form-data">
+                                @csrf
                                 <input class="answerlist" id="answerlist_{{ $question->id }}_{{ $loop->index + 1 }}"
-                                    name="answerlist_{{ $question->id }}" class="answerlist" value=" {{ $choice->name }}">
+                                    name="choice" class="answerlist" value=" {{ $choice->name }}">
+                                <input type="text" value=" {{ $choice->id }}" name="choice_id" hidden>
                                 <input type="submit" value="更新">
                             </form>
                         </li>

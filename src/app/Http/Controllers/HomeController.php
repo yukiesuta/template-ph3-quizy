@@ -45,11 +45,22 @@ class HomeController extends Controller
         $BigQuestion = BigQuestion::find($id);
         return view('admin.showQuestion', compact('BigQuestion'));
     }
-    public function showQuestionComplete($id)
+    // public function showQuestionComplete($id)
+    // {
+    //     $item = Choice::where('id', 30)->first();
+    //     $item->name = '新しい名前';
+    //     $item->save();
+    // }
+
+
+    // choiceテーブルのid
+    public function showQuestionComplete(Request $request)
     {
-        $item = Choice::where('id', 30)->first();
-        $item->name = '新しい名前';
-        $item->save();
+        $choice_id= $request['choice_id'];
+        $choice = Choice::find($choice_id);
+        $choice->name = $request['choice'];
+        $choice->save();
+        return back();
     }
 
     public function addQuestionComplete(Request $request, $id)
@@ -81,10 +92,12 @@ class HomeController extends Controller
         return redirect('/home');
     }
 
-    public function addBigQuestion() {
+    public function addBigQuestion()
+    {
         return view('admin.addBigQuestion');
     }
-    public function addBigQuestionComplete(Request $request) {
+    public function addBigQuestionComplete(Request $request)
+    {
         BigQuestion::create([
             'name' => $request->title
         ]);
@@ -92,17 +105,19 @@ class HomeController extends Controller
         return redirect('/home');
     }
 
-    public function deleteBigQuestion($id) {
+    public function deleteBigQuestion($id)
+    {
         $big_question = BigQuestion::find($id);
         return view('admin.deleteBigQuestion', compact('big_question'));
     }
 
-    public function deleteBigQuestionComplete($id) {
+    public function deleteBigQuestionComplete($id)
+    {
         $big_question = BigQuestion::find($id);
         $questions = $big_question->questions;
-        foreach($questions as $question){
+        foreach ($questions as $question) {
             $choices = $question->choices;
-            foreach($choices as $choice){
+            foreach ($choices as $choice) {
                 $choice->delete();
             }
             $question->delete();
