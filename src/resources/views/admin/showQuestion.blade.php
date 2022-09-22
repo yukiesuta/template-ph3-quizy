@@ -12,15 +12,20 @@
                         <img src="{{ asset('img/' . $question->image) }}">
                         <h3>選択肢</h3>
                         @foreach ($question->choices as $choice)
-                        <li>
+                        <p>
                             <form action="/{{ request()->path() }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <input class="answerlist" id="answerlist_{{ $question->id }}_{{ $loop->index + 1 }}"
                                     name="choice" class="answerlist" value=" {{ $choice->name }}">
                                 <input type="text" value=" {{ $choice->id }}" name="choice_id" hidden>
                                 <input type="submit" value="更新">
+                                @if($choice->valid === 1)
+                                    ○
+                                @else
+                                    ×
+                                @endif
                             </form>
-                        </li>
+                        </p>
                         @endforeach
                         <div id="answerbox_{{ $question->id }}" class="answerbox">
                             <span id="answertext_{{ $question->id }}"></span><br>
