@@ -8,14 +8,14 @@
             <table border="1">
                 <tr>
                     <th>No.</th>
-                    <th>1問目の写真</th>
+                    <th>写真</th>
                     <th>順番を変更する（小さい方が先）</th>
-                    <th>選択肢の変更</th>
+                    <th></th>
                 </tr>
                 @foreach ($BigQuestion->questions as $question)
                     <tr>
                         <td>
-                            <h2 class="question">{{ $loop->iteration }}問目</h2>
+                            <div class="question">{{ $loop->iteration }}</div>
                         </td>
                         <td><img src="{{ asset('img/' . $question->image) }}" style="height: 100px"></td>
                         <td>
@@ -26,7 +26,7 @@
                                 <input type="submit" value="更新">
                             </form>
                         </td>
-                        <td><a href="confirmation_choice/{{ $question->id }}">選択肢を編集する</a></td>
+                        <td><a href="confirmation_choice/{{ $question->id }}">選択肢一覧</a></td>
                     </tr>
                 @endforeach
             </table>

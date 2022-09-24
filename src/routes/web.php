@@ -39,3 +39,6 @@ Route::post('/home/deleteBigQuestion/{id}', 'HomeController@deleteBigQuestionCom
 
 Route::get('/home/addBigquestion', 'HomeController@addBigQuestion');
 Route::post('/home/addBigquestion', 'HomeController@addBigQuestionComplete');
+
+Route::get('/home/confirmation_question/add_choice/{id}', 'HomeController@addChoice');
+Route::post('/home/confirmation_question/add_choice/{id}', 'HomeController@addChoiceComplete');

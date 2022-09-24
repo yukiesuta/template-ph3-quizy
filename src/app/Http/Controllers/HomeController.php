@@ -112,7 +112,21 @@ class HomeController extends Controller
         $request->timestamps = false;
         return redirect('/home');
     }
-
+    public function addChoice($id)
+    {
+        $Choice = Choice::where('question_id', $id);
+        return view('admin.addChoice', compact('Choice'));
+    }
+    public function addChoiceComplete(Request $request)
+    {
+        Choice::create([
+            'question_id' => $request->question_id,
+            'name' => $request->choice,
+            'valid' => 0,
+        ]);
+        $request->timestamps = false;
+        return redirect('/home');
+    }
     public function deleteBigQuestion($id)
     {
         $big_question = BigQuestion::find($id);
