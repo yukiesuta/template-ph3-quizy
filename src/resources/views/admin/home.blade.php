@@ -10,6 +10,13 @@
             @endif
             <div><a href="/home/addBigquestion">大問追加</a></div>
             <table border="1">
+                <tr>
+                    <th>No.</th>
+                    <th>詳細を見る</th>
+                    <th></th>
+                    <th></th>
+                    <th>1枚目の写真</th>
+                </tr>
                 @foreach ($big_questions as $big_question)
                     <tr>
                         <td>{{ $big_question->id }}</td>
