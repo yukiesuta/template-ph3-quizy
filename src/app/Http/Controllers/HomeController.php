@@ -52,11 +52,19 @@ class HomeController extends Controller
     //     $item->save();
     // }
 
+    public function change_order_number(Request $request)
+    {
+        $question_id = $request['question_id'];
+        $question = Question::find($question_id);
+        $question->order_number = $request['order_number'];
+        $question->save();
+        return back();
+    }
 
     // choiceテーブルのid
     public function showQuestionComplete(Request $request)
     {
-        $choice_id= $request['choice_id'];
+        $choice_id = $request['choice_id'];
         $choice = Choice::find($choice_id);
         $choice->name = $request['choice'];
         $choice->save();
