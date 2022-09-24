@@ -12,6 +12,6 @@ class BigQuestion extends Model
 
     public function questions()
     {
-        return $this->hasMany('App\Question');
+        return $this->hasMany('App\Question')->orderBy('order_number', 'desc');
     }
 }
