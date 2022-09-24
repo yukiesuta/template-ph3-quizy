@@ -8,13 +8,12 @@
                     {{ session('status') }}
                 </div>
             @endif
-            <div><a href="/home/addBigquestion">大問追加</a></div>
+
             <table border="1">
                 <tr>
                     <th>No.</th>
                     <th>名前</th>
                     <th>1枚目の写真</th>
-                    <th></th>
                     <th></th>
                     <th></th>
                 </tr>
@@ -31,10 +30,11 @@
                             </td>
                         @endisset
                         <td><a href="/home/confirmation_question/{{ $big_question->id }}">問題一覧</a></td>
-                        <td><a href="/home/addQuestion/{{ $big_question->id }}">小問追加</a></td>
                         <td><a href="/home/deleteBigQuestion/{{ $big_question->id }}">大問削除</a></td>
                     </tr>
                 @endforeach
             </table>
+            <br>
+            <h2><a href="/home/addBigquestion">大問追加</a></h2>
         </div>
     @endsection

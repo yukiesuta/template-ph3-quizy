@@ -35,7 +35,8 @@
                 まだ問題がありません
             </div>
         @endisset
-
+        <br>
+        <h2><a href="/home/addQuestion/{{ $BigQuestion->id }}">小問追加</a></h2>
     </div>
 
 @endsection

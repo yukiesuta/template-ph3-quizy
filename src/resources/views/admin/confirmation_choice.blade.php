@@ -19,11 +19,11 @@
                 </form>
                 </p>
             @endforeach
+            <h2>
+                <a href="/home/confirmation_question/add_choice/<?= $Question->id ?>">選択肢追加</a>
+            </h2>
             <div class="answerbox">
                 正解:{{ $Question->choices->where('valid', true)->first()->name }}
-            </div>
-            <div>
-                <a href="/home/confirmation_question/add_choice/<?= $Question->id ?>">選択肢の追加</a>
             </div>
             <br>
         </div>
