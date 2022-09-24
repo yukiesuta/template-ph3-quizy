@@ -65,15 +65,18 @@ class QuizyTableSeeder extends Seeder
         $params = [
             [
                 'big_question_id' => 1,
-                'image' => 'takanawa.png'
+                'image' => 'takanawa.png',
+                'order_number' => 1,
             ],
             [
                 'big_question_id' => 1,
-                'image' => 'kameido.png'
+                'image' => 'kameido.png',
+                'order_number' => 2,
             ],
             [
                 'big_question_id' => 2,
-                'image' => 'mukainada.png'
+                'image' => 'mukainada.png',
+                'order_number' => 1,
             ],
         ];
         DB::table('questions')->insert($params);
