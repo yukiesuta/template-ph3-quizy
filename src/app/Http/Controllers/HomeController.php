@@ -125,7 +125,7 @@ class HomeController extends Controller
             'valid' => 0,
         ]);
         $request->timestamps = false;
-        return redirect('/home');
+        return redirect('/home/confirmation_question/confirmation_choice/' . $request->question_id);
     }
     public function deleteBigQuestion($id)
     {
