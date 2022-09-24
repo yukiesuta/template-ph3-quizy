@@ -40,17 +40,17 @@ class HomeController extends Controller
         $BigQuestion = BigQuestion::find($id);
         return view('admin.addQuestion', compact('BigQuestion'));
     }
-    public function showQuestion($id)
+    public function confirmation_question($id)
     {
         $BigQuestion = BigQuestion::find($id);
-        return view('admin.showQuestion', compact('BigQuestion'));
+        return view('admin.confirmation_question', compact('BigQuestion'));
     }
-    // public function showQuestionComplete($id)
-    // {
-    //     $item = Choice::where('id', 30)->first();
-    //     $item->name = '新しい名前';
-    //     $item->save();
-    // }
+
+    public function confirmation_choice($id)
+    {
+        $Question = Question::find($id);
+        return view('admin.confirmation_choice', compact('Question'));
+    }
 
     public function change_order_number(Request $request)
     {
@@ -62,7 +62,7 @@ class HomeController extends Controller
     }
 
     // choiceテーブルのid
-    public function showQuestionComplete(Request $request)
+    public function confirmation_questionComplete(Request $request)
     {
         $choice_id = $request['choice_id'];
         $choice = Choice::find($choice_id);
