@@ -2,26 +2,26 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Question;
+use App\Bigquestion;
+use App\Choice;
 
 class QuizyController extends Controller
-{ 
-    public function index($id){
-        $choices = [
-            1=>[
-                1=>['img','たかなわ','たかわ','こうわ'],
-                2=>['可めど','かめと','kameido'],
-                3=>['こうじまち','おかとまち','かゆまち']
-            ],
-            2=>[
-                1=>['むこうひだ','むかいなだ','むきひら'],
-                2=>['おしらべ','みよし','みつぎ'],
-                3=>['ぎやま','ぎんざん','かなやま']
-            ]
-            ];
-
-        return view('quizyBlade.quizy',compact('id','choices'));
-
+{
+    public function selectQuiz()
+    {
+        $big_questions = Bigquestion::all();
+        return view('quizyBlade.selectQuiz', compact('big_questions'));
     }
+    public function index($id)
+    {
+        $big_questions = Bigquestion::where('id', $id)->first();
+        return view('quizyBlade.quizy', compact('big_questions'));
+    // view(テンプレートの場所,配列)
+        // viewの編集とcontorollerで定義した変数の名前が同じときにcompact関数でまとめる
+        // return view('quizyblade.quizy',compact('id','choices'));
 
+        // クエリをかくのを減らす クエリの発行数を減らす イーガーロード（？）
+        // INT を自然数のみ
+    }
 };

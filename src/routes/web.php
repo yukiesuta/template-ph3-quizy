@@ -11,40 +11,6 @@
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-$html = <<<EOF
-
-<html>
-    <head>
-        <title>Hello</title>
-        <style>
-            body{
-                font-size:16pt;
-                color:#999;
-            }
-            h1{
-                font-size:100pt;
-                color:#eee;
-            }
-        </style>
-    </head>
-    <body>
-        <h1>Hello</h1><p?>this is sample page.</p>
-    </body>
-</html>
-
-EOF;
-
-
-// Route::get('hello', function () use ($html){
-//     return $html;
-// });
-
-
-
 // // Route::get('アドレス(/だったらトップページ)', 関数などreturnで戻り値)
 // Route::get('hello', function (){
 //     // view('フォルダ名,ファイル名');
@@ -52,5 +18,27 @@ EOF;
 //     // helloフォルダのindex.php
 // });
 
-// Route::get('hello','HelloController@index');
-Route::get('/quizy/{id?}','HelloController@index');
+Route::get('/quizy', 'QuizyController@selectQuiz');
+
+Route::get('/quizy/{id?}', 'QuizyController@index');
+Auth::routes();
+
+Route::get('/home', 'HomeController@editPage');
+
+Route::get('/home/confirmation_question/{id}', 'HomeController@confirmation_question');
+Route::post('/home/confirmation_question/{id}', 'HomeController@change_order_number');
+
+Route::get('/home/confirmation_question/confirmation_choice/{id}', 'HomeController@confirmation_choice');
+Route::post('/home/confirmation_question/confirmation_choice/{id}', 'HomeController@confirmation_questionComplete');
+
+Route::get('/home/addQuestion/{id}', 'HomeController@addQuestion');
+Route::post('/home/addQuestion/{id}', 'HomeController@addQuestionComplete');
+
+Route::get('/home/deleteBigQuestion/{id}', 'HomeController@deleteBigQuestion');
+Route::post('/home/deleteBigQuestion/{id}', 'HomeController@deleteBigQuestionComplete');
+
+Route::get('/home/addBigquestion', 'HomeController@addBigQuestion');
+Route::post('/home/addBigquestion', 'HomeController@addBigQuestionComplete');
+
+Route::get('/home/confirmation_question/add_choice/{id}', 'HomeController@addChoice');
+Route::post('/home/confirmation_question/add_choice/{id}', 'HomeController@addChoiceComplete');
