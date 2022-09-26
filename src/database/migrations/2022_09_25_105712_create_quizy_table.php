@@ -6,20 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateQuizyTable extends Migration
 {
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::dropIfExists('choices');
-        Schema::dropIfExists('questions');
-        Schema::dropIfExists('big_questions');
-    }
-
-
     /**
      * Run the migrations.
      *
@@ -46,5 +32,17 @@ class CreateQuizyTable extends Migration
             $table->string('name');
             $table->timestamps();
         });
+    }
+    
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('choices');
+        Schema::dropIfExists('questions');
+        Schema::dropIfExists('big_questions');
     }
 }
