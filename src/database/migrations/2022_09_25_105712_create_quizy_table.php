@@ -24,6 +24,7 @@ class CreateQuizyTable extends Migration
             $table->increments('id');
             $table->integer('big_question_id');
             $table->string('image');
+            $table->integer('order_number')->default(0);
             $table->timestamps();
         });
         Schema::create('big_questions', function (Blueprint $table) {
@@ -32,7 +33,7 @@ class CreateQuizyTable extends Migration
             $table->timestamps();
         });
     }
-
+    
     /**
      * Reverse the migrations.
      *
@@ -44,5 +45,4 @@ class CreateQuizyTable extends Migration
         Schema::dropIfExists('questions');
         Schema::dropIfExists('big_questions');
     }
-
 }

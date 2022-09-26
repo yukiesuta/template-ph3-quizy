@@ -25,6 +25,12 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@editPage');
 
+Route::get('/home/confirmation_question/{id}', 'HomeController@confirmation_question');
+Route::post('/home/confirmation_question/{id}', 'HomeController@change_order_number');
+
+Route::get('/home/confirmation_question/confirmation_choice/{id}', 'HomeController@confirmation_choice');
+Route::post('/home/confirmation_question/confirmation_choice/{id}', 'HomeController@confirmation_questionComplete');
+
 Route::get('/home/addQuestion/{id}', 'HomeController@addQuestion');
 Route::post('/home/addQuestion/{id}', 'HomeController@addQuestionComplete');
 
@@ -33,3 +39,6 @@ Route::post('/home/deleteBigQuestion/{id}', 'HomeController@deleteBigQuestionCom
 
 Route::get('/home/addBigquestion', 'HomeController@addBigQuestion');
 Route::post('/home/addBigquestion', 'HomeController@addBigQuestionComplete');
+
+Route::get('/home/confirmation_question/add_choice/{id}', 'HomeController@addChoice');
+Route::post('/home/confirmation_question/add_choice/{id}', 'HomeController@addChoiceComplete');

@@ -8,6 +8,7 @@ class Choice extends Model
 {
     // 複数代入時の保護
     protected $fillable = [
+        'question_id',
         'name',
         'valid'
     ];

@@ -40,6 +40,36 @@ class HomeController extends Controller
         $BigQuestion = BigQuestion::find($id);
         return view('admin.addQuestion', compact('BigQuestion'));
     }
+    public function confirmation_question($id)
+    {
+        $BigQuestion = BigQuestion::find($id);
+        return view('admin.confirmation_question', compact('BigQuestion'));
+    }
+
+    public function confirmation_choice($id)
+    {
+        $Question = Question::find($id);
+        return view('admin.confirmation_choice', compact('Question'));
+    }
+
+    public function change_order_number(Request $request)
+    {
+        $question_id = $request['question_id'];
+        $question = Question::find($question_id);
+        $question->order_number = $request['order_number'];
+        $question->save();
+        return back();
+    }
+
+    // choiceテーブルのid
+    public function confirmation_questionComplete(Request $request)
+    {
+        $choice_id = $request['choice_id'];
+        $choice = Choice::find($choice_id);
+        $choice->name = $request['choice'];
+        $choice->save();
+        return back();
+    }
 
     public function addQuestionComplete(Request $request, $id)
     {
@@ -70,28 +100,46 @@ class HomeController extends Controller
         return redirect('/home');
     }
 
-    public function addBigQuestion() {
+    public function addBigQuestion()
+    {
         return view('admin.addBigQuestion');
     }
-    public function addBigQuestionComplete(Request $request) {
+    public function addBigQuestionComplete(Request $request)
+    {
         BigQuestion::create([
             'name' => $request->title
         ]);
         $request->timestamps = false;
         return redirect('/home');
     }
-
-    public function deleteBigQuestion($id) {
+    public function addChoice($id)
+    {
+        $Choice = Choice::where('question_id', $id);
+        return view('admin.addChoice', compact('Choice'));
+    }
+    public function addChoiceComplete(Request $request)
+    {
+        Choice::create([
+            'question_id' => $request->question_id,
+            'name' => $request->choice,
+            'valid' => 0,
+        ]);
+        $request->timestamps = false;
+        return redirect('/home/confirmation_question/confirmation_choice/' . $request->question_id);
+    }
+    public function deleteBigQuestion($id)
+    {
         $big_question = BigQuestion::find($id);
         return view('admin.deleteBigQuestion', compact('big_question'));
     }
 
-    public function deleteBigQuestionComplete($id) {
+    public function deleteBigQuestionComplete($id)
+    {
         $big_question = BigQuestion::find($id);
         $questions = $big_question->questions;
-        foreach($questions as $question){
+        foreach ($questions as $question) {
             $choices = $question->choices;
-            foreach($choices as $choice){
+            foreach ($choices as $choice) {
                 $choice->delete();
             }
             $question->delete();

@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <h2>「{{ $BigQuestion->name }}」の設問追加</h2>
+        <h2>「{{ $BigQuestion->name }}」小問追加</h2>
         <form action="/{{ request()->path() }}" method="POST" enctype="multipart/form-data">
             @csrf
             <table>
